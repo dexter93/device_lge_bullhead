@@ -100,8 +100,8 @@ write /sys/module/msm_performance/parameters/cpu_max_freq "4:4294967295 5:429496
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:960000"
 write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
-# Switch to fiops scheduler and increase readahead buffer to 1024Kb
-write /sys/block/mmcblk0/queue/scheduler fiops
+# Switch to row scheduler and increase readahead buffer to 1024Kb
+write /sys/block/mmcblk0/queue/scheduler row
 write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
 
 # Setting B.L scheduler parameters
@@ -134,13 +134,15 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
 
 # configure msm_hotplug
 write /sys/module/msm_hotplug/msm_enabled 1
-write /sys/module/msm_hotplug/update_rates 200
-write /sys/module/msm_hotplug/min_cpus_online 3
+write /sys/module/msm_hotplug/update_rate 200
+write /sys/module/msm_hotplug/min_cpus_online 1
 write /sys/module/msm_hotplug/max_cpus_online 4
 write /sys/module/msm_hotplug/max_cpus_online_susp 2
 write /sys/module/msm_hotplug/offline_load 0
+write /sys/module/msm_hotplug/min_cpus_online_big 1
+write /sys/module/msm_hotplug/max_cpus_online_big 2
 write /sys/module/msm_hotplug/offline_load_big 20
-write /sys/module/msm_hotplug/online_load_big 80
+write /sys/module/msm_hotplug/online_load_big 70
 write /sys/module/msm_hotplug/kick_in_load_big 55
 write /sys/module/msm_hotplug/fast_lane_load 95
 write /sys/module/msm_hotplug/big_core_up_delay 0
