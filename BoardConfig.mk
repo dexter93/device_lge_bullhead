@@ -43,6 +43,7 @@ TARGET_KERNEL_CONFIG := bullhead_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/bullhead
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
+TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
